@@ -23,13 +23,11 @@ public class SecurityConfig {
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http.csrf(csrf -> csrf.disable())
-                .authorizeHttpRequests(authConfig -> authConfig.requestMatchers("/api/v1/noAuth/**")
-                        .permitAll()
-                        .anyRequest()
-                        .authenticated()
-                        //add admin
-
-                ).sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .authorizeHttpRequests(authConfig -> authConfig.requestMatchers("/api/v1/admin/**").hasRole("ADMIN")
+                        .requestMatchers("/api/v1/noAuth/**").permitAll()
+                        .requestMatchers("/api/v1/user/**").authenticated()
+                        .anyRequest().hasRole("ADMIN"))
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider)
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
 

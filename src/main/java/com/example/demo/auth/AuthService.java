@@ -36,11 +36,12 @@ public class AuthService {
         Role userRole;
         // TODO: load secret properly or scrap this idea
         if("PAgeo4X_7sznVDWISu5CMg".equals(request.getAdminSecret())){
-            userRole = Role.ADMIN;
+            userRole = Role.ROLE_ADMIN;
         } else {
-            userRole = Role.USER;
+            userRole = Role.ROLE_USER;
         }
 
+        //TODO: check for valid email / user / password
         User user = User.builder()
                 .name(request.getName())
                 .email(request.getEmail())
