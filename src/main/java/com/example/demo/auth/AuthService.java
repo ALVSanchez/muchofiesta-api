@@ -1,5 +1,7 @@
 package com.example.demo.auth;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -7,7 +9,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.auth.RegistrationResult.Result;
+import com.example.demo.auth.AuthenticationResult.Result;
 import com.example.demo.config.JwtService;
 import com.example.demo.user.Role;
 import com.example.demo.user.User;
@@ -30,18 +32,18 @@ public class AuthService {
 
     public RegistrationResult register(RegisterRequest request) {
         if (repository.findByEmail(request.getEmail()).isPresent()) {
-            return RegistrationResult.builder().result(Result.EmailExists).build();
+            return RegistrationResult.builder().result(RegistrationResult.Result.EmailExists).build();
         }
 
         Role userRole;
         // TODO: load secret properly or scrap this idea
-        if("PAgeo4X_7sznVDWISu5CMg".equals(request.getAdminSecret())){
+        if ("PAgeo4X_7sznVDWISu5CMg".equals(request.getAdminSecret())) {
             userRole = Role.ROLE_ADMIN;
         } else {
             userRole = Role.ROLE_USER;
         }
 
-        //TODO: check for valid email / user / password
+        // TODO: check for valid email / user / password
         User user = User.builder()
                 .name(request.getName())
                 .email(request.getEmail())
@@ -50,22 +52,33 @@ public class AuthService {
                 .build();
         repository.save(user);
         String jwtToken = jwtService.generateToken(user);
-        return new RegistrationResult(Result.Success, new AuthenticationResponse(jwtToken));
+        return new RegistrationResult(RegistrationResult.Result.Success, jwtToken);
     }
 
-    public AuthenticationResponse authenticate(AuthenticationRequest request) throws BadCredentialsException {
-        authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(
-                        request.getEmail(),
-                        request.getPassword()));
+    public AuthenticationResult authenticate(AuthenticationRequest request) throws BadCredentialsException {
 
-        User user = repository.findByEmail(request.getEmail())
-                .orElseThrow();
+        Optional<User> userOptional = repository.findByEmail(request.getEmail());
 
-        String jwtToken = jwtService.generateToken(user);
-        return AuthenticationResponse.builder()
-                .token(jwtToken)
-                .build();
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+
+            if (!passwordEncoder.matches(request.getPassword(), user.getPasswordHash())) {
+                return new AuthenticationResult(AuthenticationResult.Result.WrongPassword, null);
+            }
+
+            authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(
+                            request.getEmail(),
+                            request.getPassword()));
+
+            String jwtToken = jwtService.generateToken(user);
+            return AuthenticationResult.builder()
+                    .result(Result.Ok)
+                    .token(jwtToken)
+                    .build();
+
+        } else {
+            return new AuthenticationResult(AuthenticationResult.Result.WrongEmail, null);
+        }
     }
-
 }

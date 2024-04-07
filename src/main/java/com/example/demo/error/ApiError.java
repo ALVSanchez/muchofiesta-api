@@ -12,7 +12,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 
-//TODO: defensa
+
 @Data
 @EqualsAndHashCode(callSuper = false)
 @AllArgsConstructor
@@ -62,8 +62,8 @@ class ApiValidationError extends ApiSubError {
    private Object rejectedValue;
    private String message;
 
-   ApiValidationError(String object, String message) {
-       this.object = object;
-       this.message = message;
-   }
+    ApiValidationError(String object, String message) {
+        this.object = object;
+        this.message = message;
+    }
 }

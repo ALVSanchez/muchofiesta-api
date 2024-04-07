@@ -13,13 +13,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.example.demo.auth.AuthResult;
+import com.example.demo.auth.AuthData;
 import com.example.demo.user.User;
 import com.example.demo.user.UserService;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 
 import org.springframework.http.MediaType;
 import lombok.RequiredArgsConstructor;
@@ -28,10 +29,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/api/v1/user")
 @RestController
 @RequiredArgsConstructor
+@SecurityRequirement(name = "bearerAuth")
 public class ImageController {
 
     @Autowired
-    private final AuthResult authResult;
+    private final AuthData authResult;
 
     @Autowired
     private final UserService userService;
@@ -40,7 +42,7 @@ public class ImageController {
     private final ImageService imageService;
 
     @Autowired
-    private AuthResult userInfo;
+    private AuthData userInfo;
 
     @Operation(summary = "Upload an image", description = "Returns the id of the image")
     @ApiResponses(value = {

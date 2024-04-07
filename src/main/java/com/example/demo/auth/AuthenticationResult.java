@@ -9,12 +9,13 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class RegistrationResult {
-    enum Result {
-        Success,
-        EmailExists
+public class AuthenticationResult {
+    public enum Result {
+        Ok,
+        WrongEmail,
+        WrongPassword
     }
-
     private Result result;
-    private String response;
+    private String token;
+
 }

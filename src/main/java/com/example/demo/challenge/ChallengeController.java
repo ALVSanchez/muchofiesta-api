@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 
 //@RequestMapping("/api/v1/noAuth")
@@ -36,6 +37,7 @@ public class ChallengeController {
     }
 
     @PostMapping("/api/v1/admin/postChallenge")
+    @SecurityRequirement(name = "bearerAuth")
     public ResponseEntity<Optional<Challenge>> postChallenge(@RequestBody Challenge ch) {
         Optional<Challenge> optCh = challengeService.postChallenge(ch);
         if (optCh.isPresent()) {
@@ -46,12 +48,14 @@ public class ChallengeController {
     }
 
     @PostMapping("/api/v1/admin/initChallenges")
+    @SecurityRequirement(name = "bearerAuth")
     public ResponseEntity<String> initChallenges(@RequestBody List<Challenge> ch) {
         challengeService.initChallenges(ch);
         return ResponseEntity.ok("Operation successful");
     }
 
-    @PostMapping("/api/v1/admin/removeChallenges")
+    @PostMapping("/api/v1/admin/removeChallenge")
+    @SecurityRequirement(name = "bearerAuth")
     public ResponseEntity<String> removeChallenge(@RequestBody Integer id) {
         challengeService.removeChallenge(id);
         return ResponseEntity.ok("Operation successful");

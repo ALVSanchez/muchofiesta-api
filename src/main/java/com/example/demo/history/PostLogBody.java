@@ -1,15 +1,14 @@
-package com.example.demo.auth;
+package com.example.demo.history;
+
+import java.util.List;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class AuthenticationResponse {
-
-    private String token;
+public class PostLogBody {
+    List<String> players;
 }
