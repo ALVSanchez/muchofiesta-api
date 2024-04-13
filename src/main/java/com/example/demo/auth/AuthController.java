@@ -3,15 +3,12 @@ package com.example.demo.auth;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,10 +27,10 @@ public class AuthController {
             @ApiResponse(responseCode = "401", description = "Invalid credentials, specified by the \"result\" enum")
     })
     @PostMapping("/register")
-    public ResponseEntity<RegistrationResult> register(@RequestBody RegisterRequest request) {
+    public ResponseEntity<RegistrationResult> register(@RequestBody RegistrationRequest request) {
 
         RegistrationResult result = authService.register(request);
-        if (result.getResult() == RegistrationResult.Result.EmailExists) {
+        if (result.getResult() == RegistrationResult.Result.EmailInUse) {
             return ResponseEntity.status(403).body(result);
         }
         return ResponseEntity.ok(result);

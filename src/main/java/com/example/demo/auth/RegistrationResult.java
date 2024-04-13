@@ -11,10 +11,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class RegistrationResult {
     enum Result {
-        Success,
-        EmailExists
+        Ok,
+        EmailInUse
     }
 
     private Result result;
-    private String response;
+    private String token;
 }

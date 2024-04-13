@@ -30,9 +30,9 @@ public class AuthService {
     @Autowired
     private final AuthenticationManager authenticationManager;
 
-    public RegistrationResult register(RegisterRequest request) {
+    public RegistrationResult register(RegistrationRequest request) {
         if (repository.findByEmail(request.getEmail()).isPresent()) {
-            return RegistrationResult.builder().result(RegistrationResult.Result.EmailExists).build();
+            return RegistrationResult.builder().result(RegistrationResult.Result.EmailInUse).build();
         }
 
         Role userRole;
@@ -52,7 +52,7 @@ public class AuthService {
                 .build();
         repository.save(user);
         String jwtToken = jwtService.generateToken(user);
-        return new RegistrationResult(RegistrationResult.Result.Success, jwtToken);
+        return new RegistrationResult(RegistrationResult.Result.Ok, jwtToken);
     }
 
     public AuthenticationResult authenticate(AuthenticationRequest request) throws BadCredentialsException {
