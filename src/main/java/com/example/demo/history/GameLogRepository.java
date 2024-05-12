@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface GameLogRepository extends JpaRepository<GameLog, Integer> {
     //List<GameLog> findAllOrderByDateDesc(Pageable pageable);
-    @Query("SELECT * from gamelog gl, user u WHERE u.id = :userId AND gamelog.user = u.id")
+    @Query("SELECT gl from GameLog gl, User u WHERE u.id = :userId AND gl.user.id = u.id")
     Page<GameLog> findAllByUserId(Integer userId, Pageable pageable);
 }

@@ -52,10 +52,10 @@ public class GameLogService {
         GameLog gameLog = GameLog.builder()
         .user(user)
         .players(body.getPlayers())
-        .startDate(body.getFechaInicio())
-        .endDate(body.getFechaFin())
-        .initialPhoto(initialImageOpt)
-        .finalPhoto(finalImageOpt)
+        .startTime(body.getStartTime())
+        .endTime(body.getEndTime())
+        .initialPhoto(initialImageOpt.orElse(null))
+        .finalPhoto(finalImageOpt.orElse(null))
         .build();
         
         gameLogRepository.save(gameLog);

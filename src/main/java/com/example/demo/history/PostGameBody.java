@@ -15,7 +15,7 @@ public class PostGameBody {
     
     @Basic
     private List<String> players;
-    private Date fechaInicio;
-    private Date fechaFin;
+    private Date startTime;
+    private Date endTime;
     
 }

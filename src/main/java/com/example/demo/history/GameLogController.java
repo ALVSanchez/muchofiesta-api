@@ -11,6 +11,7 @@ import com.example.demo.user.UserService;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 
+import java.sql.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,7 +20,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 @RequestMapping("/api/v1/user")
 @RestController
@@ -45,12 +45,20 @@ public class GameLogController {
 
     @PostMapping("/postGame")
     @SecurityRequirement(name = "bearerAuth")
-    public ResponseEntity<String> postLog(@RequestBody PostGameBody body,
-            @RequestParam(value = "initialPhoto", required = false) Optional<MultipartFile> initialPhoto,
-            @RequestParam(value = "finalPhoto", required = false) Optional<MultipartFile> finalPhoto) {
+    public ResponseEntity<String> postGame(
+            @RequestParam(value = "players") List<String> players,
+            @RequestParam(value = "startTime") Long startTime,
+            @RequestParam(value = "endTime") Long endTime,
+            @RequestParam(value = "initialPhoto", required = false) MultipartFile initialPhoto,
+            @RequestParam(value = "finalPhoto", required = false) MultipartFile finalPhoto) {
                 System.out.println(initialPhoto == null);
+
+        Date startTimeDate = new Date(startTime);
+        Date endTimeDate = new Date(endTime);
+
+        PostGameBody body = new PostGameBody(players, startTimeDate, endTimeDate);
         User user = userService.getAuthUser(authData);
-        gameLogService.postGame(user, body, initialPhoto, finalPhoto);
+        gameLogService.postGame(user, body, Optional.ofNullable(initialPhoto), Optional.ofNullable(finalPhoto));
         return ResponseEntity.ok("Operation was successful.");
     }
 
