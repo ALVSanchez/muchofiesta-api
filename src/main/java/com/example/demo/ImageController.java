@@ -41,9 +41,6 @@ public class ImageController {
     @Autowired
     private final ImageService imageService;
 
-    @Autowired
-    private AuthData userInfo;
-
     @Operation(summary = "Upload an image", description = "Returns the id of the image")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successfully uploaded"),
@@ -53,12 +50,11 @@ public class ImageController {
     @PostMapping("/uploadImage")
     public ResponseEntity<Optional<Integer>> uploadImage(@RequestParam("image") MultipartFile image) {
 
-        // TODO: handle error
-        User user = userService.getAuthUser(authResult).get();
+        User user = userService.getAuthUser(authResult);
 
         System.out.println(user);
 
-        Optional<Image> newImage = imageService.uploadImage(image, user);
+        Optional<Image> newImage = imageService.uploadImageOpt(image, user);
         if (newImage.isPresent()) {
             return ResponseEntity.ok().body(Optional.of(newImage.get().getId()));
         } else {
@@ -77,7 +73,7 @@ public class ImageController {
     public ResponseEntity<InputStreamResource> getImage(@PathVariable String id) {
         System.out.println(id);
         // TODO: handle error
-        User user = userService.getAuthUser(authResult).get();
+        User user = userService.getAuthUser(authResult);
 
         UserMatchResult match = imageService.userMatches(Integer.parseInt(id), user);
         if (match == UserMatchResult.DoesNotExist) {

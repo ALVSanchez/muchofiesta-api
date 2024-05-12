@@ -14,5 +14,6 @@ import lombok.NoArgsConstructor;
 @Component
 @Scope(value = "request", proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class AuthData {
+    private Integer id;
     private String email;
 }

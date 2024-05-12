@@ -16,7 +16,17 @@ public class UserService {
     @Autowired
     private final UserRepository userRepository;
 
-    public Optional<User> getAuthUser(AuthData authResult) {
+    public User getAuthUser(AuthData authResult) {
+        Optional<User> user = userRepository.findByEmail(authResult.getEmail());
+        if(user.isEmpty()){
+            // No debería poder ocurrir
+            //TODO: Manejar error
+            throw new Error();
+        }
+        return user.get();
+    }
+
+    public Optional<User> getAuthUserOptional(AuthData authResult) {
         return userRepository.findByEmail(authResult.getEmail());
     }
 

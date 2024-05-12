@@ -9,6 +9,7 @@ import java.util.UUID;
 
 import javax.imageio.ImageIO;
 
+import org.apache.commons.lang3.NotImplementedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -29,7 +30,13 @@ public class ImageService {
     @Autowired
     private ImageRepository imageRepository;
 
-    public Optional<Image> uploadImage(MultipartFile imageFile, User user) {
+
+    // TODO: Otra función que devuelva Image (no opcional) y lance excepción por cada error
+    public Image uploadImage(MultipartFile imageFile, User user){
+        throw new NotImplementedException();
+    }
+
+    public Optional<Image> uploadImageOpt(MultipartFile imageFile, User user) {
         try {
             InputStream imageInputStream = imageFile.getInputStream();
             BufferedImage bufferedImage = ImageIO.read(imageInputStream);

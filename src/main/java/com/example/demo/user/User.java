@@ -15,6 +15,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -28,15 +29,19 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @Entity
+@Table(name = "user")
 public class User implements UserDetails{
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
+    @Column(name = "id")
     private Integer id;
     @Basic
+    @Column(name = "name")
     private String name;
+    @Column(name = "passwordHash")
     private String passwordHash;
-    @Column(unique=true)
+    @Column(name = "email", unique=true)
     private String email;
 
     @Enumerated(EnumType.STRING)
