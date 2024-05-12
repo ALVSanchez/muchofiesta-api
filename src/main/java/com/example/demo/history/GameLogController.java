@@ -37,9 +37,9 @@ public class GameLogController {
 
     @GetMapping("/getHistory")
     @SecurityRequirement(name = "bearerAuth")
-    public ResponseEntity<List<GameLog>> getHistory(@RequestParam Integer page, @RequestParam Integer pageSize) {
+    public ResponseEntity<List<GameLogResponse>> getHistory(@RequestParam Integer page, @RequestParam Integer pageSize) {
         User user = userService.getAuthUser(authData);
-        List<GameLog> logs = gameLogService.getHistory(user, page, pageSize);
+        List<GameLogResponse> logs = gameLogService.getHistory(user, page, pageSize);
         return ResponseEntity.ok(logs);
     }
 

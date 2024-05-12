@@ -37,9 +37,9 @@ public class GameLog {
     private Integer id;
     
     @Basic
-    @Column(name = "startDate")
+    @Column(name = "startTime")
     private Date startTime;
-    @Column(name = "endDate")
+    @Column(name = "endTime")
     private Date endTime;
 
     @ElementCollection
@@ -51,10 +51,10 @@ public class GameLog {
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "initialPhoto", nullable = true)
-    private Image initialPhoto;
+    @JoinColumn(name = "startPhoto", nullable = true)
+    private Image startPhoto;
 
     @ManyToOne
-    @JoinColumn(name = "finalPhoto", nullable = true)
-    private Image finalPhoto;
+    @JoinColumn(name = "endPhoto", nullable = true)
+    private Image endPhoto;
 }

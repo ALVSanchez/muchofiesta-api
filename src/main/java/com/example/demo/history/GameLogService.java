@@ -27,26 +27,27 @@ public class GameLogService {
     @Autowired
     private final ImageService imageService;
 
-    public List<GameLog> getHistory(User user, Integer pageNumber, Integer pageSize) {
-        Pageable pageable = PageRequest.of(pageNumber, pageSize, Sort.Direction.DESC, "date");
+    public List<GameLogResponse> getHistory(User user, Integer pageNumber, Integer pageSize) {
+        Pageable pageable = PageRequest.of(pageNumber, pageSize, Sort.Direction.DESC, "startTime");
         Page<GameLog> page = gameLogRepository.findAllByUserId(user.getId(), pageable);
-        return page.getContent();
+        return page.map(GameLogResponse::fromGameLog).getContent();
+        
     }
     
 
-    public GameLog postGame(User user, PostGameBody body, Optional<MultipartFile> initialPhotoFile, Optional<MultipartFile> finalPhotoFile) {
-        Optional<Image> initialImageOpt;
-        if(initialPhotoFile.isPresent()){
-            initialImageOpt = imageService.uploadImageOpt(initialPhotoFile.get(), user);
+    public GameLog postGame(User user, PostGameBody body, Optional<MultipartFile> startPhotoFile, Optional<MultipartFile> endPhotoFile) {
+        Optional<Image> startImageOpt;
+        if(startPhotoFile.isPresent()){
+            startImageOpt = imageService.uploadImageOpt(startPhotoFile.get(), user);
         } else {
-            initialImageOpt = Optional.empty();
+            startImageOpt = Optional.empty();
         }
 
-        Optional<Image> finalImageOpt;
-        if(finalPhotoFile.isPresent()){
-            finalImageOpt = imageService.uploadImageOpt(finalPhotoFile.get(), user);
+        Optional<Image> endImageOpt;
+        if(endPhotoFile.isPresent()){
+            endImageOpt = imageService.uploadImageOpt(endPhotoFile.get(), user);
         } else {
-            finalImageOpt = Optional.empty();
+            endImageOpt = Optional.empty();
         }
 
         GameLog gameLog = GameLog.builder()
@@ -54,8 +55,8 @@ public class GameLogService {
         .players(body.getPlayers())
         .startTime(body.getStartTime())
         .endTime(body.getEndTime())
-        .initialPhoto(initialImageOpt.orElse(null))
-        .finalPhoto(finalImageOpt.orElse(null))
+        .startPhoto(startImageOpt.orElse(null))
+        .endPhoto(endImageOpt.orElse(null))
         .build();
         
         gameLogRepository.save(gameLog);
