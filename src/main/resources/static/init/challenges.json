@@ -15,7 +15,7 @@
     {
         "category": "Simple",
         "data": {
-          "text": "Todos los que tengan una S en su nombre, beben 1 trago"
+          "text": "Todos los que tengan una S en su nombre beben 1 trago"
         }  
     },
     {
@@ -33,13 +33,7 @@
     {
         "category": "Simple",
         "data": {
-          "text": "{player1} puede obligar a {player2} a seguir a una persona de su elección en Instagram. Si se niega, tendrá que beber 2 tragos"
-        }  
-    },
-    {
-        "category": "Simple",
-        "data": {
-          "text": "{player1} susurra algo gracioso al oido a {player2} mientras bebe un trago"
+          "text": "{player1} susurra algo gracioso al oído a {player2} mientras bebe un trago"
         }  
     },
     {
@@ -69,7 +63,7 @@
     {
         "category": "Simple",
         "data": {
-          "text": "Los jugadores votan quien es el más 'criptobro' del grupo, y ese jugador bebe un trago"
+          "text": "Los jugadores votan quién es el más 'criptobro' del grupo, y ese jugador bebe un trago"
         }
     },
     {
@@ -87,7 +81,7 @@
     {
         "category": "Simple",
         "data": {
-          "text": "Juanito brinda por algo a su elección con un jugador que quiera. Los dos bebes un trago después de brindar"
+          "text": "Juanito brinda por algo a su elección con un jugador que quiera. Los dos beben un trago después de brindar"
         }
     },
     {
