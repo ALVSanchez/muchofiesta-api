@@ -1,5 +1,6 @@
 package com.example.demo.history;
 
+import java.sql.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -33,7 +34,54 @@ public class GameLogService {
         return page.map(GameLogResponse::fromGameLog).getContent();
         
     }
+
+    public GameLog startGame(User user, List<String> players, Date startTime, Optional<MultipartFile> startPhotoFile) {
+        
+        Optional<Image> startImageOpt;
+        if(startPhotoFile.isPresent()){
+            startImageOpt = imageService.uploadImageOpt(startPhotoFile.get(), user);
+        } else {
+            startImageOpt = Optional.empty();
+        }
+
+        GameLog gameLog = GameLog.builder()
+        .user(user)
+        .players(players)
+        .startTime(startTime)
+        .startPhoto(startImageOpt.orElse(null))
+        .build();
+        
+        gameLogRepository.save(gameLog);
+        return gameLog;
+    }
     
+    public GameLog endGame(User user, Date endTime, Optional<MultipartFile> endPhotoFile) {
+        
+        Optional<Image> endImageOpt;
+        if(endPhotoFile.isPresent()){
+            endImageOpt = imageService.uploadImageOpt(endPhotoFile.get(), user);
+        } else {
+            endImageOpt = Optional.empty();
+        }
+
+        Optional<GameLog> latestGameOpt = gameLogRepository.findFirstByUserIdOrderByStartTimeDesc(user.getId());
+
+        if(latestGameOpt.isEmpty()){
+            // TODO: Manejar error (El usuario nunca ha comenzado una partida)
+            throw new Error();
+        } else if(latestGameOpt.get().getEndTime() != null){
+            // TODO: Manejar error (No hay una partida en progreso)
+            throw new Error();
+        }
+
+        GameLog latestGame = latestGameOpt.get();
+
+        latestGame.setEndTime(endTime);
+        latestGame.setEndPhoto(endImageOpt.orElse(null));
+        gameLogRepository.save(latestGame);
+        return latestGame;
+    }
+
 
     public GameLog postGame(User user, PostGameBody body, Optional<MultipartFile> startPhotoFile, Optional<MultipartFile> endPhotoFile) {
         Optional<Image> startImageOpt;

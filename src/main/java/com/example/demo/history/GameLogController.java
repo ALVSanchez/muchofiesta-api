@@ -43,22 +43,30 @@ public class GameLogController {
         return ResponseEntity.ok(logs);
     }
 
-    @PostMapping("/postGameLog")
+    @PostMapping("/startGame")
     @SecurityRequirement(name = "bearerAuth")
-    public ResponseEntity<String> postGame(
+    public ResponseEntity<String> startGame(
             @RequestParam(value = "players") List<String> players,
             @RequestParam(value = "startTime") Long startTime,
-            @RequestParam(value = "endTime") Long endTime,
-            @RequestParam(value = "startPhoto", required = false) MultipartFile startPhoto,
-            @RequestParam(value = "endPhoto", required = false) MultipartFile endPhoto) {
-                System.out.println(startPhoto == null);
+            @RequestParam(value = "startPhoto", required = false) MultipartFile startPhoto) {
 
         Date startTimeDate = new Date(startTime);
+
+        User user = userService.getAuthUser(authData);
+        gameLogService.startGame(user, players, startTimeDate, Optional.ofNullable(startPhoto));
+        return ResponseEntity.ok("Operation was successful.");
+    }
+
+    @PostMapping("/endGame")
+    @SecurityRequirement(name = "bearerAuth")
+    public ResponseEntity<String> endGame(
+            @RequestParam(value = "endTime") Long endTime,
+            @RequestParam(value = "endPhoto", required = false) MultipartFile endPhoto) {
+
         Date endTimeDate = new Date(endTime);
 
-        PostGameBody body = new PostGameBody(players, startTimeDate, endTimeDate);
         User user = userService.getAuthUser(authData);
-        gameLogService.postGame(user, body, Optional.ofNullable(startPhoto), Optional.ofNullable(endPhoto));
+        gameLogService.endGame(user, endTimeDate, Optional.ofNullable(endPhoto));
         return ResponseEntity.ok("Operation was successful.");
     }
 
