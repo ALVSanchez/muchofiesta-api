@@ -11,7 +11,6 @@
           "text": "Si {player1} puede tocarse la barbilla con la punta del pie, puede obligar a un jugador a beber 2 tragos"
         }  
     },
-
     {
         "category": "Simple",
         "data": {
@@ -81,7 +80,7 @@
     {
         "category": "Simple",
         "data": {
-          "text": "Juanito brinda por algo a su elección con un jugador que quiera. Los dos beben un trago después de brindar"
+          "text": "{player1} brinda por algo a su elección con un jugador que quiera. Los dos beben un trago después de brindar"
         }
     },
     {
@@ -131,5 +130,33 @@
         "data": {
           "text": "{player1} tiene que cantar el himno de su país con la mano en el corazón. Si se niega, bebe 2 tragos"
         }
+    },
+	{
+        "category": "Simple",
+        "data": {
+          "text": "Empezando por {player1} y en dirección de las agujas del reloj, cada jugador debe decir una forma de llamar al pene. El primero que no sepa responder, bebe 1 trago"
+        }
+    },
+	{
+		"category": "Simple",
+		"data": {
+			"text": "{player1} tiene que nombrar la capital de Estados Unidos. Si falla, bebe 1 trago"
+    }
+	},
+	{
+		"category": "Simple",
+		"data": {
+			"text": "Empezando por {player1} y en dirección de las agujas del reloj, cada jugador debe decir una marca de refrescos. El primero que no sepa responder, repita una marca o se invente una que no existe, bebe 1 trago"
+    }
+	},
+	{
+		"category": "Simple",
+		"data": {
+			"text": "{player1} tiene que bailar sin música durante 20 segundos. Si se niega, bebe 2 tragos"
+    }
+	{
+		"category": "Simple",
+		"data": {
+			"text": "¿Prefieres ver una película sin sonido o escucharla sin poder verla? Todos los jugadores votan a la vez, y todos los del grupo con menos votos beben un trago"
     }
 ]
