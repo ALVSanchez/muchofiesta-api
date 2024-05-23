@@ -2,7 +2,6 @@ package com.example.demo.history;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 import com.example.demo.Image;
 import com.example.demo.user.User;
@@ -39,7 +38,7 @@ public class GameLog {
     @Basic
     @Column(name = "startTime")
     private Date startTime;
-    @Column(name = "endTime")
+    @Column(name = "endTime", nullable = true)
     private Date endTime;
 
     @ElementCollection
