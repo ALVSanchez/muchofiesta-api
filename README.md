@@ -30,9 +30,7 @@ Para autenticarse, hay que proporcionar el token junto con la petición usando e
 ![image](https://github.com/ALVSanchez/muchofiesta-api/assets/94567015/811276ac-66c9-4a72-88c8-ad229fe9dffb)
 
 ## Inicializar pruebas
-La aplicación no tiene pruebas al principio. Para añadirlas, se usa el endpoint POST "/api/v1/admin/initChallenges" proporcionando un array de pruebas en el cuerpo.
-Ésto también borrará las pruebas que existiesen anteriormente.
-[Éste archivo](src/main/resources/static/init/challenges.json) contiene las pruebas iniciales.
+Al comenzar la aplicación, se cargan las pruebas iniciales de [Éste archivo](src/main/resources/static/init/challenges.json).
 
 Si se quieren añadir pruebas nuevas, se puede usar "/api/v1/admin/postChallenge", que admite una sola prueba en el cuerpo.
 
