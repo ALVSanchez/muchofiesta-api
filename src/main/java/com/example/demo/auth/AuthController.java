@@ -23,15 +23,14 @@ public class AuthController {
 
     @Operation(summary = "Sign up a user", description = "Returns an authentication token if successful")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Successful authentication"),
-            @ApiResponse(responseCode = "401", description = "Invalid credentials, specified by the \"result\" enum")
+            @ApiResponse(responseCode = "200", description = "Success specified in the \"result\" enum"),
     })
     @PostMapping("/register")
     public ResponseEntity<RegistrationResult> register(@RequestBody RegistrationRequest request) {
 
         RegistrationResult result = authService.register(request);
         if (result.getResult() == RegistrationResult.Result.EmailInUse) {
-            return ResponseEntity.status(403).body(result);
+            return ResponseEntity.ok().body(result);
         }
         return ResponseEntity.ok(result);
     }
