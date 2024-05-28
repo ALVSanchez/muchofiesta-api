@@ -61,6 +61,7 @@ public class DatabaseInitializer implements CommandLineRunner {
       return;
     }
 
+    //TODO: Manage secrets (example: env variables)
     User newAdmin = User.builder()
     .email("admin@example.com")
     .passwordHash(passwordEncoder.encode("adminPassword"))
