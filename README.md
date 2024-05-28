@@ -16,7 +16,7 @@ Para crear un usuario, se usa el endpoint POST "/api/v1/noAuth/register" y se pa
   "password": "contraAdmin"
 }
 ```
-Para crear un usuario administrador, se añade una propiedad extra al cuerpo llamada "adminSecret" con el valor: "PAgeo4X_7sznVDWISu5CMg". Esto esta aún sujeto a cambios.
+Para crear un usuario administrador, se usa en su lugar el endpoint POST "/api/v1/admin/registerAdmin", que requiere un usuario administrador.
 
 Si el registro ha tenido éxito, se devolverá un token de autenticación. Para obtener otro token, se usa el endpoint GET "/api/v1/noAuth/authenticate"
 y se pasan las credenciales por el cuerpo, por ejemplo:
@@ -26,7 +26,7 @@ y se pasan las credenciales por el cuerpo, por ejemplo:
   "password": "contraseña"
 }
 ```
-Para autenticarse, hay que proporcional el token junto con la petición usando el prefijo "Bearer". Por ejemplo, usando Thunder Client:
+Para autenticarse, hay que proporcionar el token junto con la petición usando el prefijo "Bearer". Por ejemplo, usando Thunder Client:
 ![image](https://github.com/ALVSanchez/muchofiesta-api/assets/94567015/811276ac-66c9-4a72-88c8-ad229fe9dffb)
 
 ## Inicializar pruebas

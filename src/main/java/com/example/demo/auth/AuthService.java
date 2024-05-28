@@ -30,17 +30,9 @@ public class AuthService {
     @Autowired
     private final AuthenticationManager authenticationManager;
 
-    public RegistrationResult register(RegistrationRequest request) {
+    public RegistrationResult register(RegistrationRequest request, Role userRole) {
         if (repository.findByEmail(request.getEmail()).isPresent()) {
             return RegistrationResult.builder().result(RegistrationResult.Result.EmailInUse).build();
-        }
-
-        Role userRole;
-        // TODO: load secret properly or scrap this idea
-        if ("PAgeo4X_7sznVDWISu5CMg".equals(request.getAdminSecret())) {
-            userRole = Role.ROLE_ADMIN;
-        } else {
-            userRole = Role.ROLE_USER;
         }
 
         // TODO: check for valid email / user / password
