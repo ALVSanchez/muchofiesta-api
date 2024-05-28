@@ -8,7 +8,7 @@
     {
         "category": "Simple",
         "data": {
-          "text": "Si {player1} puede tocarse la barbilla con la punta del pie, puede obligar a un jugador a beber 2 tragos"
+          "text": "Si {player1} puede tocarse la barbilla con la punta del pie, puede obligar a {player2} a beber 2 tragos"
         }  
     },
     {
@@ -26,49 +26,49 @@
     {
         "category": "Simple",
         "data": {
-          "text": "{player1} puede obligar a {player2} a seguir a una persona de su elección en Instagram. Si se niega, tendrá que beber 2 tragos"
+          "text": "{player1} puede obligar a {player2} a seguir a una persona de su elección en Instagram. Si se niega, bebe 2 tragos"
         }  
     },
     {
         "category": "Simple",
         "data": {
-          "text": "{player1} susurra algo gracioso al oído a {player2} mientras bebe un trago"
+          "text": "{player1} susurra algo gracioso al oído a {player2} mientras bebe 1 trago"
         }  
     },
     {
         "category": "Simple",
         "data": {
-          "text": "{player1} tiene que adivinar el nombre, apellido y edad de cada otro jugador. Bebe un trago por cada fallo"
+          "text": "{player1} tiene que adivinar el nombre, apellido y edad de cada otro jugador. Bebe 1 trago por cada fallo"
         }  
     },
     {
         "category": "Simple",
         "data": {
-          "text": "{player1} y {player2} brindan por la antigua Yugoslavia y se toman un trago"
+          "text": "{player1} y {player2} brindan por la antigua Yugoslavia y se toman 1 trago"
         }  
     },
     {
         "category": "Simple",
         "data": {
-          "text": "Toman un trago todos los que alguna vez hayan mentido a la policía"
+          "text": "Toman 1 trago todos los que alguna vez hayan mentido a la policía"
         }  
     },
     {
         "category": "Simple",
         "data": {
-          "text": "Cualquier jugador puede tomar un trago discretamente si cree que la persona que lee esta frase está muy lejos de ser la más inteligente del grupo"
+          "text": "Cualquier jugador puede tomar 1 trago discretamente si cree que la persona que lee esta frase está muy lejos de ser la más inteligente del grupo"
         }
     },
     {
         "category": "Simple",
         "data": {
-          "text": "Los jugadores votan quién es el más 'criptobro' del grupo, y ese jugador bebe un trago"
+          "text": "Los jugadores votan quién es el más fiestero del grupo, y ese jugador bebe 1 trago"
         }
     },
     {
         "category": "Simple",
         "data": {
-          "text": "Quienes beban ron, ponen la cancion de Piratas del Caribe y beben 1 trago directo de la botella"
+          "text": "Quienes beban ron, ponen la cancion de 'Piratas del Caribe' y beben 1 trago directo de la botella"
         }
     },
     {
@@ -80,19 +80,19 @@
     {
         "category": "Simple",
         "data": {
-          "text": "{player1} brinda por algo a su elección con un jugador que quiera. Los dos beben un trago después de brindar"
+          "text": "{player1} brinda por algo a su elección con un jugador que quiera. Los dos beben 1 trago después de brindar"
         }
     },
     {
         "category": "Simple",
         "data": {
-          "text": "Todos deben votar quién canta peor del grupo. Si no hay acuerdo, los que hayan empatado con más votos deberán demostrarlo cantando La Macarena"
+          "text": "Todos deben votar quién canta peor del grupo. Si no hay acuerdo, los que hayan empatado con más votos deberán demostrarlo cantando 'La Macarena'"
         }
     },
     {
         "category": "Simple",
         "data": {
-          "text": "{player1}, si quieres, bebe 1 trago"
+          "text": "{player1}, si quieres, toma 1 trago"
         }
     },
     {
@@ -158,7 +158,7 @@
 	{
 		"category": "Simple",
 		"data": {
-			"text": "¿Prefieres ver una película sin sonido o escucharla sin poder verla? Todos los jugadores votan a la vez, y todos los del grupo con menos votos beben un trago"
+			"text": "¿Prefieres ver una película sin sonido o escucharla sin poder verla? Todos los jugadores votan a la vez, y todos los del grupo con menos votos beben 1 trago"
 		}
 	},
 	{
@@ -170,7 +170,7 @@
 	{
 		"category": "Simple",
 		"data": {
-			"text": "Empezando por {player1}, cada jugador debe nombrar un personaje de Harry Potter. El primero que no sepa responder o repita un personaje, bebe 1 trago"
+			"text": "{player1}, abraza a un jugador o bebe 1 trago"
 		}
 	},
 	{
@@ -182,13 +182,13 @@
 	{
 		"category": "Simple",
 		"data": {
-			"text": "{player1}, te ha tocado beber un trago"
+			"text": "{player1}, te ha tocado beber 1 trago"
 		}
 	},
 	{
 		"category": "Simple",
 		"data": {
-			"text": "{player1} se libra de beber la siguiente vez que le toque"
+			"text": "Si {player1} puede tocarse el codo con la lengua, puede obligar al jugador que elija a beber 2 tragos"
 		}
 	}
 ]
