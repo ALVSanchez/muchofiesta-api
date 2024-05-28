@@ -3,23 +3,22 @@ package com.example.demo;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
-import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ResourceUtils;
 
 import com.example.demo.challenge.Challenge;
 import com.example.demo.challenge.ChallengeRespository;
 import com.example.demo.challenge.ChallengeService;
+import com.example.demo.user.Role;
 import com.example.demo.user.User;
+import com.example.demo.user.UserRepository;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import io.jsonwebtoken.io.IOException;
 
 @Component
 public class DatabaseInitializer implements CommandLineRunner {
@@ -28,6 +27,12 @@ public class DatabaseInitializer implements CommandLineRunner {
   ChallengeService challengeService;
   @Autowired
   ChallengeRespository challengeRespository;
+
+  @Autowired
+  PasswordEncoder passwordEncoder;
+  
+  @Autowired
+  UserRepository userRespository;
 
   public void initChallenges() {
 
@@ -51,10 +56,24 @@ public class DatabaseInitializer implements CommandLineRunner {
     }
   }
 
+  public void initAdmin() {
+    if(userRespository.count() != 0){
+      return;
+    }
+
+    User newAdmin = User.builder()
+    .email("admin@example.com")
+    .passwordHash(passwordEncoder.encode("adminPassword"))
+    .role(Role.ROLE_ADMIN)
+    .name("Admin")
+    .build();
+
+    userRespository.save(newAdmin);
+  }
+
   @Override
   public void run(String... args) {
-
     initChallenges();
-
+    initAdmin();
   }
 }
