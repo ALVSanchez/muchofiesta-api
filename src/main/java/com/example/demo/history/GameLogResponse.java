@@ -14,6 +14,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class GameLogResponse {
+  private Integer gameId;
   private List<String> players;
   private Date startTime;
   private Date endTime;
@@ -26,6 +27,7 @@ public class GameLogResponse {
     Optional<Integer> endPhotoId = Optional.ofNullable(gameLog.getEndPhoto()).map(img -> img.getId());
 
     GameLogResponse response = GameLogResponse.builder()
+        .gameId(gameLog.getId())
         .players(gameLog.getPlayers())
         .startTime(gameLog.getStartTime())
         .endTime(gameLog.getEndTime())

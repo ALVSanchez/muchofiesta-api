@@ -49,7 +49,6 @@ public class GameLogController {
             @RequestParam(value = "players") List<String> players,
             @RequestParam(value = "startTime") Long startTime,
             @RequestParam(value = "startPhoto", required = false) MultipartFile startPhoto) {
-
         Date startTimeDate = new Date(startTime);
 
         User user = userService.getAuthUser(authData);
