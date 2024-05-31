@@ -1,194 +1,226 @@
 [
-    {
-      "category": "Simple",
-      "data": {
-        "text": "El jugador más joven y el más mayor tienen que jugar a piedra-papel-tijera. El que pierda bebe 1 trago"
-      }  
-    },
-    {
-        "category": "Simple",
-        "data": {
-          "text": "Si {player1} puede tocarse la barbilla con la punta del pie, puede obligar a {player2} a beber 2 tragos"
-        }  
-    },
-    {
-        "category": "Simple",
-        "data": {
-          "text": "Todos los que tengan una S en su nombre beben 1 trago"
-        }  
-    },
-    {
-        "category": "Simple",
-        "data": {
-          "text": "{player1} tiene que obligar a un jugador que sea más alto a beber 2 tragos. Si no hay ningún jugador más alto, bebe 2 tragos"
-        }  
-    },
-    {
-        "category": "Simple",
-        "data": {
-          "text": "{player1} puede obligar a {player2} a seguir a una persona de su elección en Instagram. Si se niega, bebe 2 tragos"
-        }  
-    },
-    {
-        "category": "Simple",
-        "data": {
-          "text": "{player1} susurra algo gracioso al oído a {player2} mientras bebe 1 trago"
-        }  
-    },
-    {
-        "category": "Simple",
-        "data": {
-          "text": "{player1} tiene que adivinar el nombre, apellido y edad de cada otro jugador. Bebe 1 trago por cada fallo"
-        }  
-    },
-    {
-        "category": "Simple",
-        "data": {
-          "text": "{player1} y {player2} brindan por la antigua Yugoslavia y se toman 1 trago"
-        }  
-    },
-    {
-        "category": "Simple",
-        "data": {
-          "text": "Toman 1 trago todos los que alguna vez hayan mentido a la policía"
-        }  
-    },
-    {
-        "category": "Simple",
-        "data": {
-          "text": "Cualquier jugador puede tomar 1 trago discretamente si cree que la persona que lee esta frase está muy lejos de ser la más inteligente del grupo"
-        }
-    },
-    {
-        "category": "Simple",
-        "data": {
-          "text": "Los jugadores votan quién es el más fiestero del grupo, y ese jugador bebe 1 trago"
-        }
-    },
-    {
-        "category": "Simple",
-        "data": {
-          "text": "Quienes beban ron, ponen la cancion de 'Piratas del Caribe' y beben 1 trago directo de la botella"
-        }
-    },
-    {
-        "category": "Simple",
-        "data": {
-          "text": "{player1}, el jugador que esté a tu derecha elige alguien de tu lista de contactos que empiece por las letras a, b o c para que cuentes quién es y de qué lo conoces"
-        }
-    },
-    {
-        "category": "Simple",
-        "data": {
-          "text": "{player1} brinda por algo a su elección con un jugador que quiera. Los dos beben 1 trago después de brindar"
-        }
-    },
-    {
-        "category": "Simple",
-        "data": {
-          "text": "Todos deben votar quién canta peor del grupo. Si no hay acuerdo, los que hayan empatado con más votos deberán demostrarlo cantando 'La Macarena'"
-        }
-    },
-    {
-        "category": "Simple",
-        "data": {
-          "text": "{player1}, si quieres, toma 1 trago"
-        }
-    },
-    {
-        "category": "Simple",
-        "data": {
-          "text": "{player1} y {player2} juegan a un juego: deben mirarse fijamente, y el primero que pestañee pierde y bebe 2 tragos"
-        }
-    },
-    {
-        "category": "Simple",
-        "data": {
-          "text": "{player1}, haz la croqueta, o si no, tomas 3 tragos"
-        }
-    },
-    {
-        "category": "Simple",
-        "data": {
-          "text": "Si 2 jugadores o más son del mismo año, todos los jugadores que hayan nacido ese año beben 1 trago"
-        }
-    },
-    {
-        "category": "Simple",
-        "data": {
-          "text": "{player1} cuenta un chiste y los que se rían beben (incluido el que cuenta el chiste)"
-        }
-    },
-    {
-        "category": "Simple",
-        "data": {
-          "text": "{player1} imita a una persona del grupo. Si nadie sabe a quién está imitando, bebe 1 trago"
-        }
-    },
-    {
-        "category": "Simple",
-        "data": {
-          "text": "{player1} tiene que cantar el himno de su país con la mano en el corazón. Si se niega, bebe 2 tragos"
-        }
-    },
-	{
-        "category": "Simple",
-        "data": {
-          "text": "Empezando por {player1} y en dirección de las agujas del reloj, cada jugador debe decir una forma de llamar al pene. El primero que no sepa responder, bebe 1 trago"
-        }
-    },
-	{
-		"category": "Simple",
-		"data": {
-			"text": "{player1} tiene que nombrar la capital de Estados Unidos. Si falla, bebe 1 trago"
-		}
-	},
-	{
-		"category": "Simple",
-		"data": {
-			"text": "Empezando por {player1}, cada jugador debe decir una marca de refrescos. El primero que no sepa responder, repita una marca o se invente una que no existe, bebe 1 trago"
-		}
-	},
-	{
-		"category": "Simple",
-		"data": {
-			"text": "{player1} tiene que bailar sin música durante 20 segundos. Si se niega, bebe 2 tragos"
-		}
-    },
-	{
-		"category": "Simple",
-		"data": {
-			"text": "¿Prefieres ver una película sin sonido o escucharla sin poder verla? Todos los jugadores votan a la vez, y todos los del grupo con menos votos beben 1 trago"
-		}
-	},
-	{
-		"category": "Simple",
-		"data": {
-			"text": "Quienes tengan un teléfono Android eligen: beben 1 trago todos los jugadores que tengan iPhone; o beben 1 trago todos los demás jugadores"
-		}
-	},
-	{
-		"category": "Simple",
-		"data": {
-			"text": "{player1}, abraza a un jugador o bebe 1 trago"
-		}
-	},
-	{
-		"category": "Simple",
-		"data": {
-			"text": "Cuando {player1} diga '¡Ya!', todos los jugadores deben elegir si levantan la mano o no. Todos los miembros del grupo perdedor beben 1 trago"
-		}
-	},
-	{
-		"category": "Simple",
-		"data": {
-			"text": "{player1}, te ha tocado beber 1 trago"
-		}
-	},
-	{
-		"category": "Simple",
-		"data": {
-			"text": "Si {player1} puede tocarse el codo con la lengua, puede obligar al jugador que elija a beber 2 tragos"
-		}
-	}
+  {
+    "category": "Simple",
+    "data": {
+      "text_es": "El jugador más joven y el más mayor tienen que jugar a piedra-papel-tijera. El que pierda bebe 1 trago",
+      "text_en": "The youngest player and the oldest player have to play rock-paper-scissors. The loser drinks 1 shot"
+    }
+  },
+  {
+    "category": "Simple",
+    "data": {
+      "text_es": "Si {player1} puede tocarse la barbilla con la punta del pie, puede obligar a {player2} a beber 2 tragos",
+      "text_en": "If {player1} can touch their chin with their toe, they can make {player2} drink 2 shots"
+    }
+  },
+  {
+    "category": "Simple",
+    "data": {
+      "text_es": "Todos los que tengan una S en su nombre beben 1 trago",
+      "text_en": "Everyone with an 'S' in their name drinks 1 shot"
+    }
+  },
+  {
+    "category": "Simple",
+    "data": {
+      "text_es": "{player1} tiene que obligar a un jugador que sea más alto a beber 2 tragos. Si no hay ningún jugador más alto, bebe 2 tragos",
+      "text_en": "{player1} has to make a taller player drink 2 shots. If there is no taller player, {player1} drinks 2 shots"
+    }
+  },
+  {
+    "category": "Simple",
+    "data": {
+      "text_es": "{player1} puede obligar a {player2} a seguir a una persona de su elección en Instagram. Si se niega, bebe 2 tragos",
+      "text_en": "{player1} can make {player2} follow someone of their choice on Instagram. If they refuse, {player2} drinks 2 shots"
+    }
+  },
+  {
+    "category": "Simple",
+    "data": {
+      "text_es": "{player1} susurra algo gracioso al oído a {player2} mientras bebe 1 trago",
+      "text_en": "{player1} whispers something funny in {player2}'s ear while {player2} drinks 1 shot"
+    }
+  },
+  {
+    "category": "Simple",
+    "data": {
+      "text_es": "{player1} tiene que adivinar el nombre, apellido y edad de cada otro jugador. Bebe 1 trago por cada fallo",
+      "text_en": "{player1} has to guess the first name, last name, and age of each other player. {player1} drinks 1 shot for each mistake"
+    }
+  },
+  {
+    "category": "Simple",
+    "data": {
+      "text_es": "{player1} y {player2} brindan por la antigua Yugoslavia y se toman 1 trago",
+      "text_en": "{player1} and {player2} toast to former Yugoslavia and take 1 shot each"
+    }
+  },
+  {
+    "category": "Simple",
+    "data": {
+      "text_es": "Toman 1 trago todos los que alguna vez hayan mentido a la policía",
+      "text_en": "Anyone who has ever lied to the police drinks 1 shot"
+    }
+  },
+  {
+    "category": "Simple",
+    "data": {
+      "text_es": "Cualquier jugador puede tomar 1 trago discretamente si cree que la persona que lee esta frase está muy lejos de ser la más inteligente del grupo",
+      "text_en": "Any player can discreetly take 1 shot if they think the person reading this card is far from being the smartest in the group"
+    }
+  },
+  {
+    "category": "Simple",
+    "data": {
+      "text_es": "Los jugadores votan quién es el más fiestero del grupo, y ese jugador bebe 1 trago",
+      "text_en": "Players vote for the most party-loving person in the group, and that player drinks 1 shot"
+    }
+  },
+  {
+    "category": "Simple",
+    "data": {
+      "text_es": "Quienes beban ron, ponen la cancion de 'Piratas del Caribe' y beben 1 trago directo de la botella",
+      "text_en": "Those who drink rum play the 'Pirates of the Caribbean' theme song and take 1 shot directly from the bottle"
+    }
+  },
+  {
+    "category": "Simple",
+    "data": {
+      "text_es": "{player1}, el jugador que esté a tu derecha elige alguien de tu lista de contactos que empiece por las letras a, b o c para que cuentes quién es y de qué lo conoces",
+      "text_en": "{player1}, the player to your right chooses someone from your contacts list whose name starts with A, B, or C for you to tell who they are and how you know them"
+    }
+  },
+  {
+    "category": "Simple",
+    "data": {
+      "text_es": "{player1} brinda por algo a su elección con un jugador que quiera. Los dos beben 1 trago después de brindar",
+      "text_en": "{player1} toasts to something of their choice with a player of their choice. Both drink 1 shot after toasting"
+    }
+  },
+  {
+    "category": "Simple",
+    "data": {
+      "text_es": "Todos deben votar quién canta peor del grupo. Si no hay acuerdo, los que hayan empatado con más votos deberán demostrarlo cantando 'La Macarena'",
+      "text_en": "Everyone must vote for the worst singer in the group. If there is no agreement, those tied with the most votes must prove it by singing 'YMCA' by The Village People"
+    }
+  },
+  {
+    "category": "Simple",
+    "data": {
+      "text_es": "{player1}, si quieres, toma 1 trago",
+      "text_en": "{player1}, if you want, take 1 shot"
+    }
+  },
+  {
+    "category": "Simple",
+    "data": {
+      "text_es": "{player1} y {player2} juegan a un juego: deben mirarse fijamente, y el primero que pestañee pierde y bebe 2 tragos",
+      "text_en": "{player1} and {player2} play a staring contest. The first to blink loses and drinks 2 shots"
+    }
+  },
+  {
+    "category": "Simple",
+    "data": {
+      "text_es": "{player1}, haz la croqueta, o si no, tomas 3 tragos",
+      "text_en": "{player1} has to roll on the floor, or else take 3 shots"
+    }
+  },
+  {
+    "category": "Simple",
+    "data": {
+      "text_es": "Si 2 jugadores o más son del mismo año, todos los jugadores que hayan nacido ese año beben 1 trago",
+      "text_en": "If 2 or more players were born in the same year, all players born that year drink 1 shot"
+    }
+  },
+  {
+    "category": "Simple",
+    "data": {
+      "text_es": "{player1} cuenta un chiste y los que se rían beben (incluido el que cuenta el chiste)",
+      "text_en": "{player1} tells a joke and those who laugh drink (including the joke-teller)"
+    }
+  },
+  {
+    "category": "Simple",
+    "data": {
+      "text_es": "{player1} imita a una persona del grupo. Si nadie sabe a quién está imitando, bebe 1 trago",
+      "text_en": "{player1} imitates someone in the group. If no one knows who they are imitating, {player1} drinks 1 shot"
+    }
+  },
+  {
+    "category": "Simple",
+    "data": {
+      "text_es": "{player1} tiene que cantar el himno de su país con la mano en el corazón. Si se niega, bebe 2 tragos",
+      "text_en": "{player1} has to sing their national anthem with their hand on their heart. If they refuse, they drink 2 shots"
+    }
+  },
+  {
+    "category": "Simple",
+    "data": {
+      "text_es": "Empezando por {player1} y en dirección de las agujas del reloj, cada jugador debe decir una forma de llamar al pene. El primero que no sepa responder, bebe 1 trago",
+      "text_en": "Starting with {player1} and going clockwise, each player must say a slang term for penis. The first one who cannot respond drinks 1 shot"
+    }
+  },
+  {
+    "category": "Simple",
+    "data": {
+      "text_es": "{player1} tiene que nombrar la capital de Estados Unidos. Si falla, bebe 1 trago",
+      "text_en": "{player1} has to name the capital of Spain. If they fail, they drink 1 shot"
+    }
+  },
+  {
+    "category": "Simple",
+    "data": {
+      "text_es": "Empezando por {player1}, cada jugador debe decir una marca de refrescos. El primero que no sepa responder, repita una marca o se invente una que no existe, bebe 1 trago",
+      "text_en": "Starting with {player1}, each player must name a brand of soda. The first one who cannot respond, repeats a brand, or makes up a non-existent one drinks 1 shot"
+    }
+  },
+  {
+    "category": "Simple",
+    "data": {
+      "text_es": "{player1} tiene que bailar sin música durante 20 segundos. Si se niega, bebe 2 tragos",
+      "text_en": "{player1} has to dance without music for 20 seconds. If they refuse, they drink 2 shots"
+    }
+  },
+  {
+    "category": "Simple",
+    "data": {
+      "text_es": "¿Prefieres ver una película sin sonido o escucharla sin poder verla? Todos los jugadores votan a la vez, y todos los del grupo con menos votos beben 1 trago",
+      "text_en": "Would you rather watch a movie without sound or listen to it without seeing it? All players vote at once, and the group with the fewer votes drinks 1 shot"
+    }
+  },
+  {
+    "category": "Simple",
+    "data": {
+      "text_es": "Quienes tengan un teléfono Android eligen: beben 1 trago todos los jugadores que tengan iPhone; o beben 1 trago todos los demás jugadores",
+      "text_en": "Those with an Android phone choose: either all iPhone users drink 1 shot, or everyone else drinks 1 shot"
+    }
+  },
+  {
+    "category": "Simple",
+    "data": {
+      "text_es": "{player1}, abraza a un jugador o bebe 1 trago",
+      "text_en": "{player1}, hug a player or drink 1 shot"
+    }
+  },
+  {
+    "category": "Simple",
+    "data": {
+      "text_es": "Cuando {player1} diga '¡Ya!', todos los jugadores deben elegir si levantan la mano o no. Todos los miembros del grupo perdedor beben 1 trago",
+      "text_en": "When {player1} says 'Now!', all players must choose to raise their hand or not. All members of the losing group drink 1 shot"
+    }
+  },
+  {
+    "category": "Simple",
+    "data": {
+      "text_es": "{player1}, te ha tocado beber 1 trago",
+      "text_en": "{player1}, you have to drink 1 shot"
+    }
+  },
+  {
+    "category": "Simple",
+    "data": {
+      "text_es": "Si {player1} puede tocarse el codo con la lengua, puede obligar al jugador que elija a beber 2 tragos",
+      "text_en": "If {player1} can touch their elbow with their tongue, they can make a player of their choice drink 2 shots"
+    }
+  }
 ]
