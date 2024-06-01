@@ -40,6 +40,10 @@ public class AuthController {
         return ResponseEntity.ok(result);
     }
 
+    @Operation(summary = "Sign up an admin user", description = "Returns an authentication token if successful")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Success specified in the \"result\" enum"),
+    })
     @PostMapping("/api/v1/admin/registerAdmin")
     @SecurityRequirement(name = "bearerAuth")
     public ResponseEntity<RegistrationResult> registerAdmin(@RequestBody RegistrationRequest request) {
@@ -53,10 +57,7 @@ public class AuthController {
 
     @Operation(summary = "Authenticate with login credentials", description = "Returns an authentication token if successful")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Successful authentication"),
-            
-            // TODO: Código de error si falla (Retrofit no deja recuperar el enum Result si el código es de error)
-            //@ApiResponse(responseCode = "401", description = "Wrong credentials, specified by the \"result\" enum")
+            @ApiResponse(responseCode = "200", description = "Success specified in the \"result\" enum"),
     })
     @PostMapping("/api/v1/noAuth/authenticate")
     public ResponseEntity<AuthenticationResult> authenticate(@RequestBody AuthenticationRequest request) throws BadCredentialsException {

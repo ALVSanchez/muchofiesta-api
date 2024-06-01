@@ -25,8 +25,7 @@ public class ChallengeController {
 
     @Operation(summary = "Get all challenges", description = "Returns all challenges of every category")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Successfully retrieved"),
-    // @ApiResponse(responseCode = "404", description = "")
+            @ApiResponse(responseCode = "200", description = "Successfully retrieved")
     })
     @GetMapping("/api/v1/noAuth/getChallenges")
     public ResponseEntity<List<Challenge>> getChallenges() {
