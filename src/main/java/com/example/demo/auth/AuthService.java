@@ -30,7 +30,24 @@ public class AuthService {
     @Autowired
     private final AuthenticationManager authenticationManager;
 
+    public static final String PSSWD_REGEX = "^[\\S]{8,24}$";
+
+    public static final String EMAIL_REGEX = "^\\S+@\\S+\\.\\S+$";
+
+    public static final String USERN_REGEX = "^[A-Za-z0-9_]{2,16}$";
+
     public RegistrationResult register(RegistrationRequest request, Role userRole) {
+
+        if (request.getName() == null || !request.getName().matches(USERN_REGEX)) {
+            return RegistrationResult.builder().result(RegistrationResult.Result.InvalidData).build();
+        }
+        else if (request.getEmail() == null || !request.getEmail().matches(EMAIL_REGEX)) {
+            return RegistrationResult.builder().result(RegistrationResult.Result.InvalidData).build();
+        } else if (request.getPassword() == null || !request.getPassword().matches(PSSWD_REGEX)) {
+            return RegistrationResult.builder().result(RegistrationResult.Result.InvalidData).build();
+        }
+        
+
         if (repository.findByEmail(request.getEmail()).isPresent()) {
             return RegistrationResult.builder().result(RegistrationResult.Result.EmailInUse).build();
         }

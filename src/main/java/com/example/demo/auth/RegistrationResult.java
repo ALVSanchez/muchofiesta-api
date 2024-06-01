@@ -12,7 +12,8 @@ import lombok.NoArgsConstructor;
 public class RegistrationResult {
     enum Result {
         Ok,
-        EmailInUse
+        EmailInUse,
+        InvalidData
     }
 
     private Result result;
