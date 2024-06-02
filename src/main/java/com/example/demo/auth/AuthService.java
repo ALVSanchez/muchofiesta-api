@@ -46,7 +46,7 @@ public class AuthService {
         } else if (request.getPassword() == null || !request.getPassword().matches(PSSWD_REGEX)) {
             return RegistrationResult.builder().result(RegistrationResult.Result.InvalidData).build();
         }
-        
+
 
         if (repository.findByEmail(request.getEmail()).isPresent()) {
             return RegistrationResult.builder().result(RegistrationResult.Result.EmailInUse).build();
@@ -61,7 +61,7 @@ public class AuthService {
                 .build();
         repository.save(user);
         String jwtToken = jwtService.generateToken(user);
-        return new RegistrationResult(RegistrationResult.Result.Ok, jwtToken);
+        return new RegistrationResult(RegistrationResult.Result.Ok, jwtToken, user.getName());
     }
 
     public AuthenticationResult authenticate(AuthenticationRequest request) throws BadCredentialsException {
@@ -72,7 +72,7 @@ public class AuthService {
             User user = userOptional.get();
 
             if (!passwordEncoder.matches(request.getPassword(), user.getPasswordHash())) {
-                return new AuthenticationResult(AuthenticationResult.Result.WrongPassword, null);
+                return new AuthenticationResult(AuthenticationResult.Result.WrongPassword, null,user.getName());
             }
 
             authenticationManager.authenticate(
@@ -87,7 +87,7 @@ public class AuthService {
                     .build();
 
         } else {
-            return new AuthenticationResult(AuthenticationResult.Result.WrongEmail, null);
+            return new AuthenticationResult(AuthenticationResult.Result.WrongEmail, null, null);
         }
     }
 }

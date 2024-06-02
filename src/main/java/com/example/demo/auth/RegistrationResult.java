@@ -17,5 +17,6 @@ public class RegistrationResult {
     }
 
     private Result result;
+    private String userName;
     private String token;
 }

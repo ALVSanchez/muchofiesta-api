@@ -17,5 +17,6 @@ public class AuthenticationResult {
     }
     private Result result;
     private String token;
+    private String userName;
 
 }
