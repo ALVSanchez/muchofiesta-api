@@ -18,5 +18,6 @@ public class RegistrationResult {
 
     private Result result;
     private String userName;
+    private Integer profilePicId;
     private String token;
 }

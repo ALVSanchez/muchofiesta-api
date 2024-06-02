@@ -16,7 +16,8 @@ public class AuthenticationResult {
         WrongPassword
     }
     private Result result;
-    private String token;
     private String userName;
+    private Integer profilePicId;
+    private String token;
 
 }

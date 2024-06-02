@@ -9,6 +9,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.Image;
 import com.example.demo.auth.AuthenticationResult.Result;
 import com.example.demo.config.JwtService;
 import com.example.demo.user.Role;
@@ -61,7 +62,21 @@ public class AuthService {
                 .build();
         repository.save(user);
         String jwtToken = jwtService.generateToken(user);
-        return new RegistrationResult(RegistrationResult.Result.Ok, jwtToken, user.getName());
+        
+        Integer profilePicId;
+        Image userProfilePic = user.getProfilePic();
+        if(userProfilePic != null){
+            profilePicId = userProfilePic.getId();
+        } else {
+            profilePicId = null;
+        }
+
+        return RegistrationResult.builder()
+            .result(RegistrationResult.Result.Ok)
+            .userName(user.getName())
+            .profilePicId(profilePicId)
+            .token(jwtToken)
+            .build();
     }
 
     public AuthenticationResult authenticate(AuthenticationRequest request) throws BadCredentialsException {
@@ -72,7 +87,9 @@ public class AuthService {
             User user = userOptional.get();
 
             if (!passwordEncoder.matches(request.getPassword(), user.getPasswordHash())) {
-                return new AuthenticationResult(AuthenticationResult.Result.WrongPassword, null,user.getName());
+                return AuthenticationResult.builder()
+                    .result(AuthenticationResult.Result.WrongPassword)
+                    .build();
             }
 
             authenticationManager.authenticate(
@@ -80,14 +97,27 @@ public class AuthService {
                             request.getEmail(),
                             request.getPassword()));
 
+
+            Integer profilePicId;
+            Image userProfilePic = user.getProfilePic();
+            if(userProfilePic != null){
+                profilePicId = userProfilePic.getId();
+            } else {
+                profilePicId = null;
+            }
+            
             String jwtToken = jwtService.generateToken(user);
             return AuthenticationResult.builder()
                     .result(Result.Ok)
                     .token(jwtToken)
+                    .userName(user.getName())
+                    .profilePicId(profilePicId)
                     .build();
 
         } else {
-            return new AuthenticationResult(AuthenticationResult.Result.WrongEmail, null, null);
+            return AuthenticationResult.builder()
+                .result(AuthenticationResult.Result.WrongEmail)
+                .build();
         }
     }
 }
