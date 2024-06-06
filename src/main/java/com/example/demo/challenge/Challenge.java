@@ -26,7 +26,8 @@ import lombok.NoArgsConstructor;
 public class Challenge {
 
     public enum Category {
-        Simple
+        Simple,
+        Timer
     }
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)

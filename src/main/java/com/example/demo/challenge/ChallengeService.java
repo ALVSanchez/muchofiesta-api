@@ -1,11 +1,17 @@
 package com.example.demo.challenge;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
+
+import com.example.demo.challenge.Challenge.Category;
+
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -15,8 +21,52 @@ public class ChallengeService {
     @Autowired
     private ChallengeRespository challengeRespository;
 
-    public List<Challenge> getChallenges() {
+    public List<Challenge> getAllChallenges() {
         return challengeRespository.findAll();
+    }
+
+    public List<Challenge> getChallenges(int challengeCount) {
+        List<Challenge> remainingChallenges = challengeRespository.findAll();
+        List<Challenge> nonTimedChallenges = new ArrayList<>(remainingChallenges)
+            .stream()
+            .filter(ch -> ch.getCategory() != Category.Timer)
+            .toList();
+        List<Challenge> pickedChallenges = new ArrayList<>();
+
+        int timedCountdown = 0;
+        int pickCount = 0;
+        while(pickCount < challengeCount) {
+            Challenge pickedChallenge;
+            if(timedCountdown > 0 || pickCount == challengeCount - 1){
+                if(nonTimedChallenges.size() == 0){
+                    break;
+                }
+                pickedChallenge = nonTimedChallenges.get(new Random().nextInt(nonTimedChallenges.size()));
+            } else {
+                if(remainingChallenges.size() == 0) {
+                    break;
+                }
+                pickedChallenge = remainingChallenges.get(new Random().nextInt(remainingChallenges.size()));
+            }
+            
+            if(pickedChallenge.getCategory() == Category.Timer){
+                if(timedCountdown > 0){
+                    continue;
+                }
+                try {
+                    timedCountdown = Integer.parseInt(pickedChallenge.getData().get("duration"));
+                } catch (Exception e) {
+                    continue;
+                }
+            }
+            remainingChallenges.remove(pickedChallenge);
+            nonTimedChallenges.remove(pickedChallenge);
+            pickedChallenges.add(pickedChallenge);
+            pickCount++;
+            timedCountdown--;
+        }
+
+        return pickedChallenges;
     }
 
     public Optional<Challenge> postChallenge(Challenge ch) {

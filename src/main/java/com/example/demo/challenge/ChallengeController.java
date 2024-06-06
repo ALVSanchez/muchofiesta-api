@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,13 +24,25 @@ public class ChallengeController {
     @Autowired
     private final ChallengeService challengeService;
 
+    /*
+    @Operation(summary = "Get all challenges", description = "Returns all challenges of every category")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Successfully retrieved")
+    })
+    @GetMapping("/api/v1/noAuth/getChallenges/{count}")
+    public ResponseEntity<List<Challenge>> getChallenges(@PathVariable("count") Integer count) {
+        List<Challenge> challenges = challengeService.getChallenges(count);
+        return ResponseEntity.ok(challenges);
+    } 
+    */
+    
     @Operation(summary = "Get all challenges", description = "Returns all challenges of every category")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successfully retrieved")
     })
     @GetMapping("/api/v1/noAuth/getChallenges")
     public ResponseEntity<List<Challenge>> getChallenges() {
-        List<Challenge> challenges = challengeService.getChallenges();
+        List<Challenge> challenges = challengeService.getAllChallenges();
         return ResponseEntity.ok(challenges);
     }
 
