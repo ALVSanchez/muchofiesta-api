@@ -24,7 +24,6 @@ public class ChallengeController {
     @Autowired
     private final ChallengeService challengeService;
 
-    /*
     @Operation(summary = "Get all challenges", description = "Returns all challenges of every category")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successfully retrieved")
@@ -33,18 +32,7 @@ public class ChallengeController {
     public ResponseEntity<List<Challenge>> getChallenges(@PathVariable("count") Integer count) {
         List<Challenge> challenges = challengeService.getChallenges(count);
         return ResponseEntity.ok(challenges);
-    } 
-    */
-    
-    @Operation(summary = "Get all challenges", description = "Returns all challenges of every category")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Successfully retrieved")
-    })
-    @GetMapping("/api/v1/noAuth/getChallenges")
-    public ResponseEntity<List<Challenge>> getChallenges() {
-        List<Challenge> challenges = challengeService.getAllChallenges();
-        return ResponseEntity.ok(challenges);
-    }
+    }     
 
     @PostMapping("/api/v1/admin/postChallenge")
     @SecurityRequirement(name = "bearerAuth")

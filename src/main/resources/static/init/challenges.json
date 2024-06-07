@@ -222,5 +222,15 @@
       "text_es": "Si {player1} puede tocarse el codo con la lengua, puede obligar al jugador que elija a beber 2 tragos",
       "text_en": "If {player1} can touch their elbow with their tongue, they can make a player of their choice drink 2 shots"
     }
+  },
+  {
+    "category": "Timer",
+    "data": {
+      "text_es": "{player1} tiene que hablar con acento francés durante las próximas 3 pruebas",
+      "text_en": "{player1} must speak with a french accent during the next 3 challenges",
+      "duration": "3",
+      "description_es": "{player1} tiene que hablar con acento francés",
+      "description_en": "{player1} must speak with a french accent"
+    }
   }
 ]

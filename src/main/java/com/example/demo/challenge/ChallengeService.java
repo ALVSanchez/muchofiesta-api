@@ -26,11 +26,11 @@ public class ChallengeService {
     }
 
     public List<Challenge> getChallenges(int challengeCount) {
-        List<Challenge> remainingChallenges = challengeRespository.findAll();
-        List<Challenge> nonTimedChallenges = new ArrayList<>(remainingChallenges)
+        ArrayList<Challenge> remainingChallenges = new ArrayList<>(challengeRespository.findAll());
+        ArrayList<Challenge> nonTimedChallenges = new ArrayList<>(new ArrayList<>(remainingChallenges)
             .stream()
             .filter(ch -> ch.getCategory() != Category.Timer)
-            .toList();
+            .toList());
         List<Challenge> pickedChallenges = new ArrayList<>();
 
         int timedCountdown = 0;
