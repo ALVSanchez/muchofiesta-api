@@ -31,6 +31,7 @@ public class GameLogService {
     private final ImageService imageService;
 
     private final int MAX_SUGGESTED_LOGS = 20;
+    private final int MAX_SUGGESTED_PLAYERS = 10;
 
     public List<String> getSuggestedPlayers(User user) {
         //HashSet<String> suggestedPlayers = new HashSet<>();
@@ -41,6 +42,7 @@ public class GameLogService {
         .stream() // Get stream of games
         .flatMap(log -> log.getPlayers().stream()) // Map into a stream of players
         .distinct() // Remove duplicates
+        .limit(MAX_SUGGESTED_PLAYERS)
         .toList();
 
         
