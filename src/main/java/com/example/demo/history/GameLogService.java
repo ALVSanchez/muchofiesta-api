@@ -1,6 +1,8 @@
 package com.example.demo.history;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,6 +29,24 @@ public class GameLogService {
 
     @Autowired
     private final ImageService imageService;
+
+    private final int MAX_SUGGESTED_LOGS = 20;
+
+    public List<String> getSuggestedPlayers(User user) {
+        //HashSet<String> suggestedPlayers = new HashSet<>();
+
+        Pageable pageable = PageRequest.of(0, MAX_SUGGESTED_LOGS, Sort.Direction.DESC, "startTime");
+
+        List<String> suggestedPlayers = gameLogRepository.findAllByUserId(user.getId(), pageable)
+        .stream() // Get stream of games
+        .flatMap(log -> log.getPlayers().stream()) // Map into a stream of players
+        .distinct() // Remove duplicates
+        .toList();
+
+        
+        return suggestedPlayers;
+
+    }
 
     public List<GameLogResponse> getHistory(User user, Integer pageNumber, Integer pageSize) {
         Pageable pageable = PageRequest.of(pageNumber, pageSize, Sort.Direction.DESC, "startTime");

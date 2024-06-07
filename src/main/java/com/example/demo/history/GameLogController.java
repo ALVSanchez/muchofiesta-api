@@ -43,6 +43,14 @@ public class GameLogController {
         return ResponseEntity.ok(logs);
     }
 
+    @GetMapping("/suggestedPlayers")
+    @SecurityRequirement(name = "bearerAuth")
+    public ResponseEntity<List<String>> getSuggestedPlayers() {
+        User user = userService.getAuthUser(authData);
+        List<String> suggestedPlayers = gameLogService.getSuggestedPlayers(user);
+        return ResponseEntity.ok(suggestedPlayers);
+    }
+
     @PostMapping("/startGame")
     @SecurityRequirement(name = "bearerAuth")
     public ResponseEntity<String> startGame(
