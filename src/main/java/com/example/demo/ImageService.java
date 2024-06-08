@@ -45,9 +45,9 @@ public class ImageService {
                     bufferedImage.getHeight(),
                     BufferedImage.TYPE_INT_RGB);
             convertedImage.createGraphics().drawImage(bufferedImage, 0, 0, Color.WHITE, null);
-            File file = new File(IMAGE_DIR, uniqueFileName() + ".jpg"); // TODO
+            File file = new File(IMAGE_DIR, uniqueFileName() + ".png"); // TODO
             FileOutputStream fileOut = new FileOutputStream(file);
-            ImageIO.write(convertedImage, "jpg", fileOut);
+            ImageIO.write(convertedImage, "png", fileOut);
 
             Image newImage = new Image(null, file.getName(), user);
             imageRepository.save(newImage);
