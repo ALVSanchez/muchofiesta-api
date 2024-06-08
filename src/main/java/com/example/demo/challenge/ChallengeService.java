@@ -25,7 +25,8 @@ public class ChallengeService {
         return challengeRespository.findAll();
     }
 
-    public List<Challenge> getChallenges(int challengeCount) {
+    public List<Challenge> getChallenges() {
+        long challengeCount = challengeRespository.count();
         ArrayList<Challenge> remainingChallenges = new ArrayList<>(challengeRespository.findAll());
         ArrayList<Challenge> nonTimedChallenges = new ArrayList<>(new ArrayList<>(remainingChallenges)
             .stream()

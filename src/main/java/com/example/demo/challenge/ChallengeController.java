@@ -24,13 +24,16 @@ public class ChallengeController {
     @Autowired
     private final ChallengeService challengeService;
 
+
+
+    // TODO: remove count
     @Operation(summary = "Get all challenges", description = "Returns all challenges of every category")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successfully retrieved")
     })
-    @GetMapping("/api/v1/noAuth/getChallenges/{count}")
-    public ResponseEntity<List<Challenge>> getChallenges(@PathVariable("count") Integer count) {
-        List<Challenge> challenges = challengeService.getChallenges(count);
+    @GetMapping("/api/v1/noAuth/getChallenges")
+    public ResponseEntity<List<Challenge>> getChallenges() {
+        List<Challenge> challenges = challengeService.getChallenges();
         return ResponseEntity.ok(challenges);
     }     
 
