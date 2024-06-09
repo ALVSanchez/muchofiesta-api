@@ -42,7 +42,7 @@ public class GameLogService {
         .stream() // Get stream of games
         .flatMap(log -> log.getPlayers().stream()) // Map into a stream of players
         .distinct() // Remove duplicates
-        .filter(player -> !player.equals(user.getName())) // Filter out the user's name
+        .filter(player -> !player.equalsIgnoreCase(user.getName())) // Filter out the user's name
         .limit(MAX_SUGGESTED_PLAYERS)
         .toList();
 
