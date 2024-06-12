@@ -24,16 +24,15 @@ public class ChallengeController {
     @Autowired
     private final ChallengeService challengeService;
 
-
-
-    // TODO: remove count
-    @Operation(summary = "Get all challenges", description = "Returns all challenges of every category")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Successfully retrieved")
-    })
     @GetMapping("/api/v1/noAuth/getChallenges")
     public ResponseEntity<List<Challenge>> getChallenges() {
         List<Challenge> challenges = challengeService.getChallenges();
+        return ResponseEntity.ok(challenges);
+    }
+
+    @GetMapping("/api/v1/noAuth/getAllChallenges")
+    public ResponseEntity<List<Challenge>> getAllChallenges() {
+        List<Challenge> challenges = challengeService.getAllChallenges();
         return ResponseEntity.ok(challenges);
     }     
 
@@ -48,6 +47,17 @@ public class ChallengeController {
         }
     }
 
+    @PostMapping("/api/v1/admin/postChallenges")
+    @SecurityRequirement(name = "bearerAuth")
+    public ResponseEntity<String> postChallenge(@RequestBody List<Challenge> ch) {
+        boolean success = challengeService.postChallenges(ch);
+        if (success) {
+            return ResponseEntity.ok("Challenges saved succesfully");
+        } else {
+            return ResponseEntity.badRequest().body("An error has occured");
+        }
+    }
+
     @PostMapping("/api/v1/admin/initChallenges")
     @SecurityRequirement(name = "bearerAuth")
     public ResponseEntity<String> initChallenges(@RequestBody List<Challenge> ch) {
@@ -59,6 +69,7 @@ public class ChallengeController {
     @SecurityRequirement(name = "bearerAuth")
     public ResponseEntity<String> removeChallenge(@RequestBody Integer id) {
         challengeService.removeChallenge(id);
+
         return ResponseEntity.ok("Operation successful");
     }
 }

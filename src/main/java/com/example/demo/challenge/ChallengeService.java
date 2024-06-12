@@ -74,6 +74,13 @@ public class ChallengeService {
         return Optional.ofNullable(ch).map(optCh -> challengeRespository.save(optCh));
     }
 
+    public boolean postChallenges(List<Challenge> challenges) {
+        challenges.forEach(ch -> {
+            challengeRespository.save(ch);
+        });
+        return true;
+    }
+
     public void initChallenges(@NonNull List<Challenge> challenges) {
         challengeRespository.deleteAll();
         for(Challenge challenge: challenges) {
@@ -82,9 +89,15 @@ public class ChallengeService {
         }
     }
 
-    // TODO: Check for null with custom error
-    public void removeChallenge(@NonNull Integer id) {
-        challengeRespository.deleteById(id);
+    // Always returns true if id is not null
+    public boolean removeChallenge(@NonNull Integer id) {
+
+        try {
+            challengeRespository.deleteById(id);
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
     }
 
 }
